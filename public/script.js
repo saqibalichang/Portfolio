@@ -106,8 +106,8 @@ class LifeConstellation {
   initNodes() {
     const nodeData = [
       // Education
-      { id: 'comsats', label: 'COMSATS University', category: 'education', description: 'BBA - Business Administration (2020-2024)', x: 0.2, y: 0.3 },
-      { id: 'lund', label: 'Lund University', category: 'education', description: 'MSc Business & Economics (2024-Present)', x: 0.5, y: 0.15 },
+      { id: 'qau', label: 'Quaid i Azam University', category: 'education', description: 'BBA - Business Administration (2020-2024)', x: 0.2, y: 0.3 },
+      { id: 'chemnitz', label: 'Chemnitz University of Technology', category: 'education', description: 'MSc Business & Economics (2024-Present)', x: 0.5, y: 0.15 },
       
       // Experience
       { id: 'interloop', label: 'Interloop Limited', category: 'experience', description: 'Supply Chain Management Intern', x: 0.75, y: 0.25 },
@@ -136,10 +136,10 @@ class LifeConstellation {
   initConnections() {
     this.connections = [
       // Education to Experience
-      ['comsats', 'interloop'],
-      ['comsats', 'sdpi'],
-      ['comsats', 'nbp'],
-      ['lund', 'comsats'],
+      ['qau', 'interloop'],
+      ['qau', 'sdpi'],
+      ['qau', 'nbp'],
+      ['chemnitz', 'qau'],
       
       // Experience to Skills
       ['interloop', 'excel'],
@@ -155,7 +155,7 @@ class LifeConstellation {
       // Values connections
       ['impact', 'collab'],
       ['growth', 'collab'],
-      ['growth', 'lund']
+      ['growth', 'chemnitz']
     ];
   }
   
