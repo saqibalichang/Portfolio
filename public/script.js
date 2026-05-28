@@ -106,23 +106,25 @@ class LifeConstellation {
   initNodes() {
     const nodeData = [
       // Education
-      { id: 'qau', label: 'Quaid i Azam University', category: 'education', description: 'BBA - Business Administration (2020-2024)', x: 0.2, y: 0.3 },
-      { id: 'chemnitz', label: 'Chemnitz University of Technology', category: 'education', description: 'MSc Business & Economics (2024-Present)', x: 0.5, y: 0.15 },
+      { id: 'qau', label: 'Quaid i Azam University', category: 'education', description: 'BBA - Business Administration (2020-2024)', x: 0.15, y: 0.25 },
+      { id: 'chemnitz', label: 'Chemnitz University of Technology', category: 'education', description: 'MSc Business & Economics (2024-Present)', x: 0.45, y: 0.15 },
       
       // Experience
-      { id: 'interloop', label: 'Interloop Limited', category: 'experience', description: 'Supply Chain Management Intern', x: 0.75, y: 0.25 },
-      { id: 'sdpi', label: 'SDPI', category: 'experience', description: 'Research Intern - Policy Research', x: 0.85, y: 0.5 },
-      { id: 'nbp', label: 'National Bank', category: 'experience', description: 'Finance Intern - Banking Operations', x: 0.7, y: 0.7 },
+      { id: 'aiesec', label: 'AIESEC in Germany', category: 'experience', description: 'Member (2026-Present)', x: 0.75, y: 0.2 },
+      { id: 'pak_pvc', label: 'PAK PVC PIPES INDUSTRY', category: 'experience', description: 'Retail & Operations Coordinator (2024-2025)', x: 0.9, y: 0.35 },
+      { id: 'mpdsi', label: 'Ministry of Planning Development and Special Initiative', category: 'experience', description: 'Research Intern (2025)', x: 0.8, y: 0.5 },
+      { id: 'mof', label: 'Ministry of Finance, Pakistan', category: 'experience', description: 'Finance Intern (2023)', x: 0.85, y: 0.7 },
+      { id: 'mnfsr', label: 'Ministry of National Food Security & Research', category: 'experience', description: 'Research Intern (2022)', x: 0.68, y: 0.6 },
       
       // Skills
-      { id: 'excel', label: 'Excel & Analytics', category: 'skills', description: 'Advanced data analysis and modeling', x: 0.3, y: 0.55 },
-      { id: 'research', label: 'Research', category: 'skills', description: 'Policy research and economic analysis', x: 0.45, y: 0.7 },
-      { id: 'spss', label: 'SPSS & Stata', category: 'skills', description: 'Statistical analysis software', x: 0.15, y: 0.65 },
+      { id: 'excel', label: 'Excel & Analytics', category: 'skills', description: 'Advanced data analysis and modeling', x: 0.25, y: 0.5 },
+      { id: 'research', label: 'Research', category: 'skills', description: 'Policy research and economic analysis', x: 0.4, y: 0.65 },
+      { id: 'spss', label: 'SPSS & Stata', category: 'skills', description: 'Statistical analysis software', x: 0.1, y: 0.6 },
       
       // Values
-      { id: 'impact', label: 'Impact', category: 'values', description: 'Creating meaningful change through data', x: 0.55, y: 0.45 },
-      { id: 'growth', label: 'Growth', category: 'values', description: 'Continuous learning and improvement', x: 0.35, y: 0.85 },
-      { id: 'collab', label: 'Collaboration', category: 'values', description: 'Building bridges across disciplines', x: 0.65, y: 0.85 }
+      { id: 'impact', label: 'Impact', category: 'values', description: 'Creating meaningful change through data', x: 0.5, y: 0.4 },
+      { id: 'growth', label: 'Growth', category: 'values', description: 'Continuous learning and improvement', x: 0.3, y: 0.8 },
+      { id: 'collab', label: 'Collaboration', category: 'values', description: 'Building bridges across disciplines', x: 0.6, y: 0.85 }
     ];
     
     this.nodes = nodeData.map(node => ({
@@ -136,16 +138,20 @@ class LifeConstellation {
   initConnections() {
     this.connections = [
       // Education to Experience
-      ['qau', 'interloop'],
-      ['qau', 'sdpi'],
-      ['qau', 'nbp'],
+      ['qau', 'mof'],
+      ['qau', 'mnfsr'],
       ['chemnitz', 'qau'],
+      ['chemnitz', 'aiesec'],
+      ['chemnitz', 'pak_pvc'],
+      ['chemnitz', 'mpdsi'],
       
       // Experience to Skills
-      ['interloop', 'excel'],
-      ['sdpi', 'research'],
-      ['nbp', 'excel'],
-      ['sdpi', 'spss'],
+      ['pak_pvc', 'excel'],
+      ['mpdsi', 'research'],
+      ['mof', 'excel'],
+      ['mpdsi', 'spss'],
+      ['mnfsr', 'research'],
+      ['aiesec', 'collab'],
       
       // Skills to Values
       ['excel', 'impact'],
