@@ -117,9 +117,9 @@ class LifeConstellation {
       { id: 'mnfsr', label: 'Ministry of National Food Security & Research', category: 'experience', description: 'Research Intern (2022) • Islamabad, Pakistan', x: 0.68, y: 0.6 },
       
       // Skills
-      { id: 'excel', label: 'Excel & Analytics', category: 'skills', description: 'Advanced data analysis and modeling', x: 0.25, y: 0.5 },
+      { id: 'excel', label: 'Advanced Excel', category: 'skills', description: 'Advanced data analysis and modeling', x: 0.25, y: 0.5 },
       { id: 'research', label: 'Research', category: 'skills', description: 'Policy research and economic analysis', x: 0.4, y: 0.65 },
-      { id: 'spss', label: 'SPSS & Stata', category: 'skills', description: 'Statistical analysis software', x: 0.1, y: 0.6 },
+      { id: 'r_rstudio', label: 'R & RStudio', category: 'skills', description: 'Statistical programming and data analysis', x: 0.1, y: 0.6 },
       
       // Values
       { id: 'impact', label: 'Impact', category: 'values', description: 'Creating meaningful change through data', x: 0.5, y: 0.4 },
@@ -149,7 +149,7 @@ class LifeConstellation {
       ['pak_pvc', 'excel'],
       ['mpdsi', 'research'],
       ['mof', 'excel'],
-      ['mpdsi', 'spss'],
+      ['mpdsi', 'r_rstudio'],
       ['mnfsr', 'research'],
       ['aiesec', 'collab'],
       
