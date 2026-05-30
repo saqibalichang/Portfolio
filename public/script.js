@@ -110,11 +110,11 @@ class LifeConstellation {
       { id: 'chemnitz', label: 'Chemnitz University of Technology', category: 'education', description: 'MSc Business & Economics (2024-Present)', x: 0.45, y: 0.15 },
       
       // Experience
-      { id: 'aiesec', label: 'AIESEC in Germany', category: 'experience', description: 'Member (2026-Present)', x: 0.75, y: 0.2 },
-      { id: 'pak_pvc', label: 'PAK PVC PIPES INDUSTRY', category: 'experience', description: 'Retail & Operations Coordinator (2024-2025)', x: 0.9, y: 0.35 },
-      { id: 'mpdsi', label: 'Ministry of Planning Development and Special Initiative', category: 'experience', description: 'Research Intern (2025)', x: 0.8, y: 0.5 },
-      { id: 'mof', label: 'Ministry of Finance, Pakistan', category: 'experience', description: 'Finance Intern (2023)', x: 0.85, y: 0.7 },
-      { id: 'mnfsr', label: 'Ministry of National Food Security & Research', category: 'experience', description: 'Research Intern (2022)', x: 0.68, y: 0.6 },
+      { id: 'aiesec', label: 'AIESEC in Germany', category: 'experience', description: 'Member (2026-Present) • Halle, Germany', x: 0.75, y: 0.2 },
+      { id: 'pak_pvc', label: 'PAK PVC PIPES INDUSTRY', category: 'experience', description: 'Retail & Operations Coordinator (2024-2025) • Peshawar, Pakistan', x: 0.9, y: 0.35 },
+      { id: 'mpdsi', label: 'Ministry of Planning Development and Special Initiative', category: 'experience', description: 'Research Intern (2025) • Islamabad, Pakistan', x: 0.8, y: 0.5 },
+      { id: 'mof', label: 'Ministry of Finance, Pakistan', category: 'experience', description: 'Finance Intern (2023) • Islamabad, Pakistan', x: 0.85, y: 0.7 },
+      { id: 'mnfsr', label: 'Ministry of National Food Security & Research', category: 'experience', description: 'Research Intern (2022) • Islamabad, Pakistan', x: 0.68, y: 0.6 },
       
       // Skills
       { id: 'excel', label: 'Excel & Analytics', category: 'skills', description: 'Advanced data analysis and modeling', x: 0.25, y: 0.5 },
