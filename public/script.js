@@ -63,19 +63,99 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// ===== Toast Notification Helper =====
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+  
+  const toast = document.createElement('div');
+  toast.className = `toast toast-${type}`;
+  
+  let iconSVG = '';
+  if (type === 'success') {
+    iconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>`;
+  } else if (type === 'error') {
+    iconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>`;
+  } else {
+    iconSVG = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
+  }
+  
+  toast.innerHTML = `
+    <div class="toast-icon">${iconSVG}</div>
+    <div class="toast-message">${message}</div>
+  `;
+  
+  container.appendChild(toast);
+  
+  // Force reflow
+  toast.offsetHeight;
+  
+  toast.classList.add('show');
+  
+  // Auto remove toast
+  setTimeout(() => {
+    toast.classList.remove('show');
+    toast.addEventListener('transitionend', () => {
+      toast.remove();
+    });
+  }, 4000);
+}
+
 // ===== Contact Form Handler =====
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  const formData = new FormData(contactForm);
-  const data = Object.fromEntries(formData);
-  
-  // Show success message (in a real app, you'd send this to a server)
-  alert('Thank you for your message! I will get back to you soon.');
-  contactForm.reset();
-});
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    
+    // Set button to loading state
+    submitBtn.disabled = true;
+    submitBtn.classList.add('btn-loading');
+    submitBtn.textContent = 'Sending...';
+    
+    const formData = new FormData(contactForm);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    })
+      .then(async (response) => {
+        let jsonResponse;
+        try {
+          jsonResponse = await response.json();
+        } catch (err) {
+          jsonResponse = {};
+        }
+        
+        if (response.status === 200 && jsonResponse.success) {
+          showToast('Thank you! Your message has been sent successfully.', 'success');
+          contactForm.reset();
+        } else {
+          console.error(jsonResponse);
+          showToast(jsonResponse.message || 'Something went wrong. Please try again later.', 'error');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        showToast('Network error. Please check your internet connection.', 'error');
+      })
+      .finally(() => {
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('btn-loading');
+        submitBtn.textContent = originalBtnText;
+      });
+  });
+}
 
 // ===== Life Constellation Interactive Canvas =====
 class LifeConstellation {

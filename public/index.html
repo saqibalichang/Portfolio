@@ -590,7 +590,15 @@
             </a>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
+        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="973414ff-cb53-41e4-9bf8-b5f098041d4d">
+          <!-- Honeypot Spam Protection -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+          <!-- Custom Subject for the Email Notification -->
+          <input type="hidden" name="subject" value="New Message from Portfolio Website">
+          <!-- Web3Forms configuration -->
+          <input type="hidden" name="from_name" value="Saqib Ali Portfolio Contact Form">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required placeholder="Your name">
@@ -629,6 +637,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
 
   <script src="script.js"></script>
 </body>
